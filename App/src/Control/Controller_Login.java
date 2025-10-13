@@ -92,6 +92,14 @@ public class Controller_Login {
         stage.show();
     }
 
-    public void handleForgotPassword(ActionEvent actionEvent) {
+    public void handleForgotPassword(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/View/ResetPassword.fxml")));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Quên mật khẩu");
+        stage.show();
     }
+
+
 }
