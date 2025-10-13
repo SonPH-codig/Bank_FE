@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.EventObject;
 import java.util.Objects;
+import Model.SessionData;
 
 public class Controller_Login {
     @FXML
@@ -93,7 +94,7 @@ public class Controller_Login {
     }
 
     public void handleForgotPassword(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/View/ResetPassword.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/View/ForgotPassword.fxml")));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.setScene(scene);
@@ -102,4 +103,13 @@ public class Controller_Login {
     }
 
 
+    @FXML
+    public void initialize() {
+        TextField_SoDienThoai.setText(SessionData.getSoDienThoai());
+        TextField_Password.setText(SessionData.getMatKhau());
+    }
+
 }
+
+
+

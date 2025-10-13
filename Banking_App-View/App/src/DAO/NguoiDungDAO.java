@@ -145,4 +145,19 @@ public class NguoiDungDAO implements interfaceDAO<NguoiDung>{
         JDBCUtil.disconnect(con);
         return rs.next();
     }
+    public void updatePasswordByPhone(String sdt, String newPassword) {
+        Connection con = JDBCUtil.getConnection();
+        String sql = "UPDATE NguoiDung SET Password = ? WHERE SDT = ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, newPassword);
+            ps.setString(2, sdt);
+            ps.executeUpdate();
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        JDBCUtil.disconnect(con);
+    }
+
 }

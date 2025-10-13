@@ -15,6 +15,13 @@ import java.lang.String;
 import java.time.Period;
 import java.util.concurrent.ScheduledExecutorService;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.Node;
+import Model.SessionData;
+
 public class Controller_Register {
     @FXML private TextField textField_hoten;
     @FXML private TextField textField_cccd;
@@ -274,5 +281,21 @@ public class Controller_Register {
         }
         return stringBuilder.toString().trim();
     }
+
+    //Giữ lại dữ liệu khi back
+    public void handleBack(ActionEvent actionEvent) throws IOException {
+        // Lưu lại dữ liệu tạm (nếu người dùng có nhập số điện thoại hoặc mật khẩu)
+        SessionData.setSoDienThoai(textField_sdt.getText());
+        SessionData.setMatKhau(textField_mk.getText());
+
+        // Quay lại màn Login
+        Parent root = FXMLLoader.load(getClass().getResource("/View/Login.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Đăng nhập");
+        stage.show();
+    }
+
 }
 

@@ -15,6 +15,8 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="787.0" prefWidth="628.0" stylesheets="@Register.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Controller_Register">
+
+
     <children>
         <GridPane hgap="10" layoutX="82.0" layoutY="130.0" prefHeight="350.0" prefWidth="450.0" vgap="10">
             <columnConstraints>
@@ -114,10 +116,13 @@
             <Image url="@Image/bank_transparent%20(1).png" />
          </image>
       </ImageView>
-      <Button minWidth="41.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="51.0" text="◄">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Button>
+        <Button minWidth="41.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="51.0" text="◄"
+                onAction="#handleBack">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Button>
+
     </children>
 </AnchorPane>
+
